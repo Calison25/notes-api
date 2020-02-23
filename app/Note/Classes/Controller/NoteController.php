@@ -15,6 +15,7 @@ class NoteController extends DefaultController
      */
     public function create(array $data)
     {
-        
+        echo "aqui!";
+        die;
     }
 }
