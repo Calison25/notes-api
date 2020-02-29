@@ -6,6 +6,7 @@ namespace App\Note\Classes\Controller;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DefaultController;
+use App\Note\Domain\Model\Note;
 
 class NoteController extends DefaultController
 {
@@ -15,7 +16,7 @@ class NoteController extends DefaultController
      */
     public function create(array $data)
     {
-        echo "aqui!";
-        die;
+        $note = new Note($data['title'], $data['content'], intval($data['color']));
+        $note->save();
     }
 }

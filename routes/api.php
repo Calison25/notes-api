@@ -17,10 +17,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:api')->post('/note', function (Request $request){
-    var_dump(\Illuminate\Support\Facades\Auth::check());
-    echo "aqui?!";
-    die;
+Route::middleware('auth:api')->post('/note/{note_id?}', function (Request $request, $noteId = null) {
+    $noteController = new \App\Note\Classes\Controller\NoteController();
+    $noteController->callMethodFromRequest($request);
 });
 
 
