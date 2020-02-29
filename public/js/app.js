@@ -49661,8 +49661,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /media/calison/277908e5-3516-489f-9c8a-2cfd9d2bfb6f1/Projetos/notes/notes-api/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /media/calison/277908e5-3516-489f-9c8a-2cfd9d2bfb6f1/Projetos/notes/notes-api/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /media/calison/277908e5-3516-489f-9c8a-2cfd9d2bfb6f3/Projetos/notes/notes-api/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /media/calison/277908e5-3516-489f-9c8a-2cfd9d2bfb6f3/Projetos/notes/notes-api/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

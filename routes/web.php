@@ -18,9 +18,3 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::any('/note/{note_id?}', function (\Illuminate\Http\Request $request, $noteId = null) {
-    $noteController = new \App\Note\Classes\Controller\NoteController();
-    $noteController->callMethodFromRequest($request);
-    return 'teste';
-});
