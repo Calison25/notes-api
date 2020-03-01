@@ -36,15 +36,6 @@ class Note extends Model
         'user_id',
     ];
 
-    public function __construct(string $title, string $content, int $color)
-    {
-        $this->title = $title;
-        $this->content = $content;
-        $this->color = $color;
-        $this->user_id = Auth::id();
-    }
-
-
     /**
      * Get the post that owns the comment.
      */

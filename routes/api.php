@@ -1,5 +1,6 @@
 <?php
 
+use App\Note\Classes\Controller\NoteController;
 use Illuminate\Http\Request;
 
 /*
@@ -17,9 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:api')->post('/note/{note_id?}', function (Request $request, $noteId = null) {
-    $noteController = new \App\Note\Classes\Controller\NoteController();
-    $noteController->callMethodFromRequest($request);
+Route::middleware('auth:api')->any('/note/{note_id?}', function (Request $request, $noteId = null) {
+    $noteController = new NoteController();
+    return $noteController->callMethodFromRequest($request, $noteId);
 });
 
 
