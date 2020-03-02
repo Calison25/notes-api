@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Note\Domain\Factory;
+namespace App\Note\Classes\Domain\Factory;
 
 use App\Note\Domain\Model\Note;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
-class NoteFactory extends Model
+class NoteFactory
 {
     public function create(array $data)
     {

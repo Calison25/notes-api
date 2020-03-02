@@ -3,37 +3,46 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller as BaseController;
 
 abstract class DefaultController extends Controller
 {
-    abstract function create(array $data);
+    abstract function create(array $argumentsFromRequest) :object;
 
-    abstract function list(array $argumentsFromRequest = null) :object ;
+    abstract function update(string $objectIdentifier, array $argumentsFromRequest) :object;
 
-    abstract function show(array $extraParams) :object;
+    abstract function list(array $argumentsFromRequest = null) :object;
+
+    abstract function show(string $objectIdentifier) :object;
+
+    abstract function delete(string $objectIdentifier);
 
 
     /**
      * @param Request $request
-     * @param $extraParams
+     * @param string $objectIdentifier
      * @return mixed
      * @throws \Exception
      */
-    public function callMethodFromRequest(Request $request, $extraParams = null)
+    public function callMethodFromRequest(Request $request, string $objectIdentifier = null)
     {
         parse_str($request->getContent(), $argumentsFromRequest);
+
         switch ($request->getMethod()) {
             case 'POST': {
                 return $this->callAction('create', [$argumentsFromRequest]);
             }
             case 'GET': {
-                if ($extraParams !== null) {
-                    $extraParams = is_array($extraParams) ? $extraParams : [$extraParams];
-                    return $this->callAction('show', [$extraParams]);
+                if ($objectIdentifier !== null) {
+                    return $this->show($objectIdentifier);
                 }
 
-                return $this->callAction('list', [$argumentsFromRequest]);
+                return $this->list($argumentsFromRequest);
+            }
+            case 'PUT': {
+                return $this->update($objectIdentifier, $argumentsFromRequest);
+            }
+            case 'DELETE': {
+                return $this->delete($objectIdentifier);
             }
             default: {
                 throw new \Exception('Método não encontrado', 1582341731);

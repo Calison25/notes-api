@@ -22,17 +22,3 @@ Route::middleware('auth:api')->any('/note/{note_id?}', function (Request $reques
     $noteController = new NoteController();
     return $noteController->callMethodFromRequest($request, $noteId);
 });
-
-
-
-
-
-
-//
-//, function (\Illuminate\Http\Request $request, $noteId = null) {
-//    echo "aqui?!";
-//    die;
-//    $noteController = new \App\Note\Classes\Controller\NoteController();
-//    $noteController->callMethodFromRequest($request);
-//    return 'teste';
-//});
